@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Min RSS Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Nyhetsläsare</p>
+        <h1>Min RSS Dashboard</h1>
+        <p id="updatedText" class="muted">Inte uppdaterad ännu</p>
+      </div>
+
+      <div class="toolbar">
+        <button id="refreshBtn" class="primary">Uppdatera</button>
+        <button id="editBtn">Redigera</button>
+        <button id="addBtn">Lägg till feed</button>
+      </div>
+    </header>
+
+    <section class="add-panel hidden" id="addPanel">
+      <input id="feedTitle" placeholder="Namn, t.ex. The Verge" />
+      <input id="feedUrl" placeholder="RSS-länk, t.ex. https://www.theverge.com/rss/index.xml" />
+      <button id="saveFeedBtn" class="primary">Spara feed</button>
+    </section>
+
+    <nav class="segmented">
+      <button data-view="widgets" class="active">Widgetar</button>
+      <button data-view="flow">Flöde</button>
+    </nav>
+
+    <main>
+      <section id="widgetsView" class="widgets-grid"></section>
+      <section id="flowView" class="flow-list hidden"></section>
+    </main>
+  </div>
+
+  <dialog id="readerDialog">
+    <article class="reader">
+      <button id="closeReader" class="close">×</button>
+      <p id="readerSource" class="eyebrow"></p>
+      <h2 id="readerTitle"></h2>
+      <p id="readerMeta" class="muted"></p>
+      <div id="readerBody"></div>
+      <a id="readerLink" class="primary link-button" target="_blank" rel="noopener">Öppna originalet</a>
+    </article>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
